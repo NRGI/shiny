@@ -25,7 +25,10 @@ RUN wget --no-verbose https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubu
     rm -f version.txt ss-latest.deb
 
 RUN R -e "install.packages(c('shiny', 'rmarkdown'), repos='https://cran.rstudio.com/')"
-RUN git clone git@github.com:NRGI/shiny-apps.git /srv/shiny-server/
+RUN ls
+RUN git clone https://github.com/NRGI/shiny-apps.git
+RUN cp -R /shiny-apps/* /srv/shiny-server/
+RUN ls
 # RUN cp -R /usr/local/lib/R/site-library/shiny/examples/* /srv/shiny-server/
 
 EXPOSE 3838
