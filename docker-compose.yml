@@ -1,0 +1,7 @@
+web:
+	build .
+	ports:
+		- "80:3838"
+	volumes:
+		- /srv/shinyapps/:/srv/shiny-server/ 
+		- /srv/shinylog/:/var/log/
