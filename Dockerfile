@@ -30,7 +30,7 @@ RUN wget --no-verbose https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubu
     gdebi -n ss-latest.deb && \
     rm -f version.txt ss-latest.deb
 
-RUN R -e "install.packages(c('bitops','caTools','colorspace','curl','devtools','dplyr','ggplot2','httr','Hmisc','knitr','lubridate','markdown','qcc','RColorBrewer','RCurl','rjson','scales','shiny','shinyIncubator','stringr','tidyr','whisker'), repos='https://cran.rstudio.com/')"
+RUN R -e "install.packages(c('bitops','caTools','colorspace','curl','devtools','dplyr','ggplot2','httr','Hmisc','knitr','lubridate','markdown','qcc','RColorBrewer','RCurl','reshape','rgdal','rjson','scales','shiny','shinyIncubator','stringr','tidyr','tm','whisker'), repos='https://cran.rstudio.com/')"
 
 RUN R -e "devtools::install_github('ropensci/ckanr')"
 
