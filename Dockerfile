@@ -3,8 +3,6 @@ FROM r-base:latest
 MAINTAINER Winston Chang "winston@rstudio.com"
 
 RUN apt-get update && apt-get install -y \
-    aptitude \
-    git \
     sudo \
     gdebi-core \
     pandoc \
@@ -12,26 +10,6 @@ RUN apt-get update && apt-get install -y \
     libcurl4-gnutls-dev \
     libcairo2-dev/unstable \
     libxt-dev
-
-RUN apt-get update && apt-get install -y \
-    aptitude \
-    git \
-    sudo \
-    gdebi-core \
-    pandoc \
-    pandoc-citeproc \
-    libx11-dev \
-    libxext-dev \
-    libxcb1-dev \
-    libxcb-render0-dev \
-    libxcb-shm0-dev \
-    libxrender-dev \
-    libcurl4-gnutls-dev \
-    libcairo2-dev/unstable \
-    libxt-dev
-RUN aptitude install -y \
-    libgdal-dev \
-    libproj-dev
 
 # Download and install libssl 0.9.8
 RUN wget --no-verbose http://ftp.us.debian.org/debian/pool/main/o/openssl/libssl0.9.8_0.9.8o-4squeeze14_amd64.deb && \
@@ -45,11 +23,9 @@ RUN wget --no-verbose https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubu
     gdebi -n ss-latest.deb && \
     rm -f version.txt ss-latest.deb
 
-RUN R -e "install.packages(c('leaflet', 'memoise', 'RColorBrewer', 'rgdal', 'rmarkdown', 'shiny', 'tm', 'wordcloud'), repos='https://cran.rstudio.com/')"
+RUN R -e "install.packages(c('shiny', 'rmarkdown'), repos='https://cran.rstudio.com/')"
 
 RUN cp -R /usr/local/lib/R/site-library/shiny/examples/* /srv/shiny-server/
-# RUN git clone https://github.com/NRGI/shiny-apps.git
-# RUN cp -R /shiny-apps/* /srv/shiny-server/sample-apps
 
 EXPOSE 3838
 
