@@ -12,6 +12,23 @@ RUN apt-get update && apt-get install -y \
     libcurl4-gnutls-dev \
     libcairo2-dev/unstable \
     libxt-dev
+
+RUN apt-get update && apt-get install -y \
+    aptitude \
+    git \
+    sudo \
+    gdebi-core \
+    pandoc \
+    pandoc-citeproc \
+    libx11-dev \
+    libxext-dev \
+    libxcb1-dev \
+    libxcb-render0-dev \
+    libxcb-shm0-dev \
+    libxrender-dev \
+    libcurl4-gnutls-dev \
+    libcairo2-dev/unstable \
+    libxt-dev
 RUN aptitude install -y \
     libgdal-dev \
     libproj-dev
