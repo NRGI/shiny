@@ -3,14 +3,14 @@ Docker for Shiny Server
 
 This is a Dockerfile for Shiny Server on Debian "testing". It is based on the r-base image.
 
-The image is available from [Docker Hub](https://registry.hub.docker.com/u/rocker/shiny/).
+The image is available from [Docker Hub](https://registry.hub.docker.com/u/nrgi/shiny/).
 
 ## Usage:
 
 To run a temporary container with Shiny Server:
 
 ```sh
-docker run --rm -p 3838:3838 rocker/shiny
+docker run --rm -p 3838:3838 nrgi/shiny
 ```
 
 
@@ -20,7 +20,7 @@ To expose a directory on the host to the container use `-v <host_dir>:<container
 docker run --rm -p 3838:3838 \
     -v /srv/shinyapps/:/srv/shiny-server/ \
     -v /srv/shinylog/:/var/log/ \
-    rocker/shiny
+    nrgi/shiny
 ```
 
 If you have an app in /srv/shinyapps/appdir, you can run the app by visiting http://localhost:3838/appdir/. (If using boot2docker, visit http://192.168.59.103:3838/appdir/)
@@ -32,7 +32,7 @@ In a real deployment scenario, you will probably want to run the container in de
 docker run -d -p 80:3838 \
     -v /srv/shinyapps/:/srv/shiny-server/ \
     -v /srv/shinylog/:/var/log/ \
-    rocker/shiny
+    nrgi/shiny
 ```
 
 
